@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+#Este role binding permite que el grupo dev pueda leer secretos en cualquier namespace
+kind: ClusterRoleBinding
+metadata:
+  name: get-pod-global
+subjects:
+- kind: User
+  name: allfait 
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: pruebas-serviceaccount
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: get-pod
+  apiGroup: rbac.authorization.k8s.io

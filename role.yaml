@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: get-pod
+rules:
+- apiGroups: [""] # "" indica el core API group osea los principales recursos de kubernetes
+  verbs: ["get", "watch", "list"]
+  resources: ["pods", "pods/log"]
